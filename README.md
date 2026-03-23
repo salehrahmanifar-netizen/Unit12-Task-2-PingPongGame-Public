@@ -7,8 +7,8 @@ clock = pygame.time.Clock()
 
 # --- LOAD SOUNDS ---
 try:
-    hit_sound = pygame.mixer.Sound(r"C:\Users\saleh\OneDrive\Desktop\Python\pong.ogg")
-    score_sound = pygame.mixer.Sound(r"C:\Users\saleh\OneDrive\Desktop\Python\score.ogg")
+    hit_sound = pygame.mixer.Sound(r"C:\Users\saleh\OneDrive\Desktop\Python\Ball hiting.mp3")
+    score_sound = pygame.mixer.Sound(r"C:\Users\saleh\OneDrive\Desktop\Python\scoring1.mp3")
 except:
     print("Sound files not found! Please check paths.")
     hit_sound = None
@@ -101,7 +101,7 @@ while True:
     if game_state == "menu":
         draw_text("PingPong Game", title_font, black, screen_width/2, 200, True)
         b1 = draw_button("Continue", 540, 350, 200, 70)
-        b2 = draw_button("Quite", 540, 450, 200, 70)
+        b2 = draw_button("Quit", 540, 450, 200, 70)
 
     elif game_state == "mode":
         draw_text("Select game mode", title_font, black, screen_width/2, 150, True)
@@ -173,14 +173,14 @@ while True:
         if game_state == "countdown":
             draw_text(str(countdown_value), huge_font, black, screen_width/2, screen_height/2 - 200, True)
         
-        b_quit_game = draw_button("Quite", 10, 10, 120, 50)
+        b_quit_game = draw_button("Quit", 10, 10, 120, 50)
         if left_score >= 5 or right_score >= 5: game_state = "result"
 
     elif game_state == "result":
         draw_text("Game Over", title_font, black, screen_width/2, 200, True)
         draw_text(f"{left_score} : {right_score}", title_font, black, screen_width/2, 300, True)
         b_again = draw_button("Play Again", 520, 450, 240, 70)
-        b_quit_res = draw_button("Quite", 520, 550, 240, 70)
+        b_quit_res = draw_button("Quit", 520, 550, 240, 70)
 
     pygame.display.flip()
     clock.tick(60)
